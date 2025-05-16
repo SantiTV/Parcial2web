@@ -1,7 +1,5 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
-import { ReseñaService } from './reseña.service';
 
-@Module({
-  providers: [ReseñaService]
-})
+@Module({})
 export class ReseñaModule {}

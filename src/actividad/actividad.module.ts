@@ -1,7 +1,5 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
-import { ActividadService } from './actividad.service';
 
-@Module({
-  providers: [ActividadService]
-})
+@Module({})
 export class ActividadModule {}
