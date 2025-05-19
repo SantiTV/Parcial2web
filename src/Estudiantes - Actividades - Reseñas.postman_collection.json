@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "6487b839-de94-45eb-a8ce-fef8d245a426",
+		"name": "Estudiantes - Actividades - Reseñas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31290138"
+	},
+	"item": [
+		{
+			"name": "Post Actividad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiene ID en la respuesta\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"id\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Taller de seguridad en redes\",\r\n  \"fecha\": \"2025-05-20\",\r\n  \"cupos\": 30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/actividades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"actividades"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Post Actividad",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Taller de redes\",\r\n  \"descripcion\": \"Ejercicio de configuración de redes\",\r\n  \"fecha\": \"2025-05-18\",\r\n  \"estudianteId\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/actividad",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actividad"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Post Reseña",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/reseña",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reseña"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Post Reseña",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"comentario\": \"Muy buena actividad\",\r\n  \"puntuacion\": 5,\r\n  \"actividadId\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reseña",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reseña"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"comentario\": \"Muy buena actividad\",\r\n  \"puntuacion\": 5,\r\n  \"actividadId\": 1\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Post Estudiante",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Juan Pérez\",\r\n  \"correo\": \"juan@example.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/estudiante",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"estudiante"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Post Estudiante",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Juan Pérez\",\r\n  \"correo\": \"juan@example.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/estudiante",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"estudiante"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"nombre\": \"Juan Pérez\",\r\n  \"correo\": \"juan@example.com\"\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Get By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/estudiantes/{{estudianteId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"estudiantes",
+						"{{estudianteId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get By Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/estudiantes/{{estudianteId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"estudiantes",
+								"{{estudianteId}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get Invalid Estudiante",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/estudiantes/00000000-0000-0000-0000-000000000000 ",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"estudiantes",
+						"00000000-0000-0000-0000-000000000000 "
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Invalid Estudiante",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/estudiantes/00000000-0000-0000-0000-000000000000 ",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"estudiantes",
+								"00000000-0000-0000-0000-000000000000 "
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The estudiante with the given id was not found\"\r\n}"
+				}
+			]
+		}
+	]
+}
