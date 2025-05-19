@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 
+import 'reflect-metadata';
 import {
   Column,
   Entity,
@@ -25,7 +26,7 @@ export class Actividad {
   cupoMaximo: number;
 
   @Column()
-  estado: number; // 0: abierta, 1: cerrada, 2: finalizada
+  estado: number;
 
   @ManyToMany(() => Estudiante, (estudiante) => estudiante.actividades)
   estudiantes: Estudiante[];

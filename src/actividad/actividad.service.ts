@@ -35,7 +35,7 @@ export class ActividadService {
     return this.actividadRepo.save(actividad);
   }
 
-  async findAllActividadesByDate(fecha: string) {
+  async obtenerActividadesPorFecha(fecha: string) {
     return this.actividadRepo.find({ where: { fecha } });
   }
 }

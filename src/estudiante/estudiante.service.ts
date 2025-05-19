@@ -32,7 +32,7 @@ export class EstudianteService {
     return this.estudianteRepo.save(data);
   }
 
-  async findEstudianteById(id: number) {
+  async obtenerEstudiante(id: number) {
     const estudiante = await this.estudianteRepo.findOne({
       where: { id },
       relations: ['actividades'],
@@ -41,8 +41,8 @@ export class EstudianteService {
     return estudiante;
   }
 
-  async inscribirseActividad(estudianteID: number, actividadID: number) {
-    const estudiante = await this.findEstudianteById(estudianteID);
+  async inscribirseAActividad(estudianteID: number, actividadID: number) {
+    const estudiante = await this.obtenerEstudiante(estudianteID);
     const actividad = await this.actividadRepo.findOne({
       where: { id: actividadID },
       relations: ['estudiantes'],
